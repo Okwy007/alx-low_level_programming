@@ -31,7 +31,7 @@ else
 if (INT_MIN / 10 > (int) -n)
 return (INT_MIN);
 n *= 10;
-if (INT_MIN + (*S - '0') > (int) -n)
+if (INT_MIN + (*s - '0') > (int) -n)
 return (INT_MIN);
 }
 n += (*s - '0');

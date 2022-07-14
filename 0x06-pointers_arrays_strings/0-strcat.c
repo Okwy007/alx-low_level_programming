@@ -1,32 +1,33 @@
 #include "main.h"
 
 /**
- * lenstr - calculates the lenght of a string
+ *  _strcat - concatenate two strings
+ *   @dest: the string to append to
+ *   @src: the string to append
  *
- *  @str: string whose length is to be calculated
+ *   Description: This function appends the string pointed to by src to the
+ *   string pointed to by dest, overwriting the null byte at the end of dest.
  *
- *   Return: length of string
+ *    Return: a pointer to the destination string dest
  */
-
-int lenstr(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-		;
-	return (i);
-}
-
 char *_strcat(char *dest, char *src)
 {
-	int i;
-	int dest_len = lenstr(dest);
-	int src_len = lenstr(src);
+char *dest_end = dest;
+int src_len = 0;
 
-	for (i = 0; i < src_len; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
+while (*dest_end)
+++dest_end;
 
-	return (dest);
+while (src[src_len])
+++src_len;
+
+if (src + src_len < dest || dest_end + src_len < src)
+{
+do {
+*dest_end++ = *src++;
+} while (src_len--);
+
+}
+return (dest);
+
 }
